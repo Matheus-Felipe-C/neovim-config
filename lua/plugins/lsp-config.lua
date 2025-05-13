@@ -19,6 +19,8 @@ return {
         "neovim/nvim-lspconfig",
         dependencies = { "mason-org/mason.nvim" },
         config = function()
+            local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
             local lspconfig = require "lspconfig"
             lspconfig.lua_ls.setup({
                 settings = {
@@ -27,9 +29,15 @@ return {
                             callSnippet = 'Replace',
                         }
                     }
-                }
+                },
+                capabilities = capabilities
             })
-            lspconfig.ts_ls.setup({})
+            lspconfig.ts_ls.setup({
+                capabilities = capabilities
+            })
+            lspconfig.html.setup({
+                capabilities = capabilities
+            })
 
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
