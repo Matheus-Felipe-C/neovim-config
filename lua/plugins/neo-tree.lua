@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-doc-name
 return {
   "nvim-neo-tree/neo-tree.nvim",
   branch = "v3.x",
@@ -14,6 +15,6 @@ return {
     -- fill any relevant options here
   },
     config = function()
-        vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<CR>')
+        vim.keymap.set('n', '<leader>e', ':Neotree filesystem toggle left<CR>')
     end
 }
