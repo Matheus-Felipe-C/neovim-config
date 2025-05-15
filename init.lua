@@ -25,3 +25,4 @@ vim.g.maplocalleader = "\\"
 require("lazy").setup("plugins")
 
 require "options"
+require "keymaps"
